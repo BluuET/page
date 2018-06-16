@@ -42,7 +42,7 @@ app.post('/insert',function(req,res){
         console.log(entry);
                 MongoClient.connect("mongodb://localhost:27017", function(err, client) {
                         var db=client.db('login');
-                    db.collection('log').findOne({email:req.email}, function(err, result) {
+                    db.collection('log').findOne({email:req.body.email}, function(err, result) {
                                 if (err) 
                                         throw err;
                                 if(result)
